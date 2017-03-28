@@ -25,9 +25,10 @@ namespace Kinect_cognitive_v0
             InitializeComponent();
         }
 
-        private void HitThemButton()
-        {
 
+        private void Button1_Click(object sender, RoutedEventArgs e)
+        {
+                        
         }
     }
 }

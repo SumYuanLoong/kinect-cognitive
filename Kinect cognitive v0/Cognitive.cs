@@ -9,15 +9,8 @@ using System.Web;
 
 namespace Kinect_cognitive_v0
 {
-    class Cognitive
+    static class Cognitive
     {
-        static void Main()
-        {
-            MakeRequest();
-            Console.WriteLine("Hit ENTER to exit...");
-            Console.ReadLine();
-        }
-
         static async void MakeRequest()
         {
             var client = new HttpClient();
@@ -29,7 +22,6 @@ namespace Kinect_cognitive_v0
             // Request parameters
             queryString["returnFaceId"] = "true";
             queryString["returnFaceLandmarks"] = "false";
-            queryString["returnFaceAttributes"] = "{string}";
             var uri = "https://westus.api.cognitive.microsoft.com/face/v1.0/detect?" + queryString;
 
             HttpResponseMessage response;

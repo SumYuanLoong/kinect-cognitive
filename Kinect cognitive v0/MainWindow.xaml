@@ -5,20 +5,38 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Kinect_cognitive_v0"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow"
+        Height="350"
+        Width="525">
     <Grid>
-        <TextBox HorizontalAlignment="Left" Height="131" Margin="139,156,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="274" RenderTransformOrigin="0.5,0.5">
+        <TextBox HorizontalAlignment="Left"
+                 Height="131"
+                 Margin="139,156,0,0"
+                 TextWrapping="Wrap"
+                 VerticalAlignment="Top"
+                 Width="274"
+                 RenderTransformOrigin="0.5,0.5">
             <TextBox.RenderTransform>
                 <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="0.098"/>
-                    <TranslateTransform/>
+                    <ScaleTransform />
+                    <SkewTransform />
+                    <RotateTransform Angle="0.098" />
+                    <TranslateTransform />
                 </TransformGroup>
             </TextBox.RenderTransform>
         </TextBox>
-        <Button x:Name="Button1" Content="Press to annoy MS" HorizontalAlignment="Left" Margin="100,21,0,0" VerticalAlignment="Top" Width="146" Height="94"/>
-        <Label Content="Data returned" HorizontalAlignment="Left" Margin="30,164,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="Button1"
+                Content="Press to annoy MS"
+                HorizontalAlignment="Left"
+                Margin="100,21,0,0"
+                VerticalAlignment="Top"
+                Width="146"
+                Height="94"
+                Click="Button1_Click" />
+        <Label Content="Data returned"
+               HorizontalAlignment="Left"
+               Margin="30,164,0,0"
+               VerticalAlignment="Top" />
 
     </Grid>
 </Window>
