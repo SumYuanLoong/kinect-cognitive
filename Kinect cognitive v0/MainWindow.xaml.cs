@@ -24,5 +24,10 @@ namespace Kinect_cognitive_v0
         {
             InitializeComponent();
         }
+
+        private void HitThemButton()
+        {
+
+        }
     }
 }
