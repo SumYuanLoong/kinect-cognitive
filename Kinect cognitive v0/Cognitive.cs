@@ -6,18 +6,20 @@ using System.Threading.Tasks;
 using System.Net.Http.Headers;
 using System.Net.Http;
 using System.Web;
+using System.Diagnostics;
+using System.IO;
 
 namespace Kinect_cognitive_v0
 {
-    static class Cognitive
+    public class Cognitive
     {
-        static async void MakeRequest()
+        public async void MakeRequest()
         {
             var client = new HttpClient();
             var queryString = HttpUtility.ParseQueryString(string.Empty);
 
             // Request headers
-            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "{subscription key}");
+            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "645b7c34e24641c8b1f8f4e6202e1908");
 
             // Request parameters
             queryString["returnFaceId"] = "true";
@@ -27,14 +29,27 @@ namespace Kinect_cognitive_v0
             HttpResponseMessage response;
 
             // Request body
-            byte[] byteData = Encoding.UTF8.GetBytes("{body}");
+            byte[] byteData = ImageToBinary("C:\\Users\\Sum Yuan Loong\\Documents\\visual studio 2017\\Projects\\Kinect cognitive v0\\Kinect cognitive v0\\DSC_0402.JPG"); //Encoding.UTF8.GetBytes(); //http://i.imgur.com/MGqHQ42.jpg
 
             using (var content = new ByteArrayContent(byteData))
             {
-                content.Headers.ContentType = new MediaTypeHeaderValue("< your content type, i.e. application/json >");
+                content.Headers.ContentType = new MediaTypeHeaderValue("application/octet-stream");
+                Trace.WriteLine(content);
+                Trace.WriteLine(uri);
                 response = await client.PostAsync(uri, content);
+                Trace.WriteLine(response);
+                var test = await response.Content.ReadAsStringAsync();
+                Trace.WriteLine(test);
             }
 
+        }
+        static byte[] ImageToBinary(string imagePath)
+        {
+            FileStream fileStream = new FileStream(imagePath, FileMode.Open, FileAccess.Read);
+            byte[] buffer = new byte[fileStream.Length];
+            fileStream.Read(buffer, 0, (int)fileStream.Length);
+            fileStream.Close();
+            return buffer;
         }
     }
 }

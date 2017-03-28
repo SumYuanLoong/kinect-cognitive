@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Diagnostics;
 
 namespace Kinect_cognitive_v0
 {
@@ -23,12 +24,14 @@ namespace Kinect_cognitive_v0
         public MainWindow()
         {
             InitializeComponent();
+            Trace.WriteLine("this is a trace");
         }
 
 
         private void Button1_Click(object sender, RoutedEventArgs e)
         {
-                        
+            Cognitive ping = new Cognitive();
+            ping.MakeRequest();
         }
     }
 }
