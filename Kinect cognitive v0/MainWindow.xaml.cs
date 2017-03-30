@@ -31,7 +31,13 @@ namespace Kinect_cognitive_v0
         private void Button1_Click(object sender, RoutedEventArgs e)
         {
             Cognitive ping = new Cognitive();
+            ping.main = this;
             ping.MakeRequest();
+        }
+
+        public void changeTextbox1(string text)
+        {
+            textbox1.Text = text;
         }
     }
 }

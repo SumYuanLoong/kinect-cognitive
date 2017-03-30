@@ -9,7 +9,8 @@
         Height="350"
         Width="525">
     <Grid>
-        <TextBox HorizontalAlignment="Left"
+        <TextBox x:Name="textbox1"
+                 HorizontalAlignment="Left"
                  Height="131"
                  Margin="139,156,0,0"
                  TextWrapping="Wrap"

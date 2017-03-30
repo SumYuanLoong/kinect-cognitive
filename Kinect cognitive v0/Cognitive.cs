@@ -13,6 +13,7 @@ namespace Kinect_cognitive_v0
 {
     public class Cognitive
     {
+        public MainWindow main;
         public async void MakeRequest()
         {
             var client = new HttpClient();
@@ -29,7 +30,7 @@ namespace Kinect_cognitive_v0
             HttpResponseMessage response;
 
             // Request body
-            byte[] byteData = ImageToBinary("C:\\Users\\Sum Yuan Loong\\Documents\\visual studio 2017\\Projects\\Kinect cognitive v0\\Kinect cognitive v0\\DSC_0402.JPG"); //Encoding.UTF8.GetBytes(); //http://i.imgur.com/MGqHQ42.jpg
+            byte[] byteData = ImageToBinary("C:\\Users\\Bingcheng\\Pictures\\kinectTest.png"); //Encoding.UTF8.GetBytes(); //http://i.imgur.com/MGqHQ42.jpg
 
             using (var content = new ByteArrayContent(byteData))
             {
@@ -40,6 +41,7 @@ namespace Kinect_cognitive_v0
                 Trace.WriteLine(response);
                 var test = await response.Content.ReadAsStringAsync();
                 Trace.WriteLine(test);
+                main.textbox1.Text = test;
             }
 
         }
